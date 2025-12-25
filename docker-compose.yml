@@ -1,0 +1,23 @@
+services:
+  scrape:
+    build:
+      context: .
+      dockerfile: docker/scrape/Dockerfile
+    working_dir: /work
+    volumes:
+      - ./runs:/work/runs
+      - ./targets:/work/targets
+      - ./scripts:/work/scripts
+      - ./scrape_tool:/work/scrape_tool
+    entrypoint: ["/bin/bash", "/work/scripts/scrape.sh"]
+
+  recon:
+    build:
+      context: .
+      dockerfile: docker/recon/Dockerfile
+    working_dir: /work
+    volumes:
+      - ./runs:/work/runs
+      - ./targets:/work/targets
+      - ./scripts:/work/scripts
+    entrypoint: ["/bin/bash", "/work/scripts/recon.sh"]
