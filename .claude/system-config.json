@@ -1,0 +1,160 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-01-01T02:56:00Z",
+  "system_name": "Claude Integrations Toolkit",
+  "description": "Comprehensive Claude integration system with self-learning capabilities",
+
+  "capabilities": {
+    "file_management": {
+      "enabled": true,
+      "tools": ["upload_file", "list_files", "delete_file"],
+      "mcp_server": "file-upload-mcp",
+      "python_module": "python-client/claude_files_api.py"
+    },
+    "self_learning": {
+      "enabled": true,
+      "tools": ["embed_skill", "get_recommendations", "record_learning", "generate_report"],
+      "mcp_server": "meta-skill-mcp",
+      "python_module": "meta-skill/core/meta_skill_engine.py",
+      "auto_update": true
+    },
+    "conversation_tracking": {
+      "enabled": true,
+      "tools": ["create_thread", "add_message", "list_threads", "switch_thread", "export_thread", "import_thread"],
+      "mcp_server": "conversation-tracker-mcp",
+      "python_module": "python-client/conversation_tracker.py",
+      "multi_instance_support": true
+    },
+    "usage_monitoring": {
+      "enabled": true,
+      "python_module": "python-client/api_usage_tracker.py",
+      "features": ["rate_limiting", "budget_tracking", "cost_estimation", "alerts"]
+    }
+  },
+
+  "mcp_servers": {
+    "file-upload-mcp": {
+      "path": "mcp-servers/file-upload-mcp/server.py",
+      "command": "python3",
+      "requires_api_key": true,
+      "status": "active"
+    },
+    "meta-skill-mcp": {
+      "path": "mcp-servers/meta-skill-mcp/server.py",
+      "command": "python3",
+      "requires_api_key": false,
+      "status": "active"
+    },
+    "conversation-tracker-mcp": {
+      "path": "mcp-servers/conversation-tracker-mcp/server.py",
+      "command": "python3",
+      "requires_api_key": false,
+      "status": "active"
+    }
+  },
+
+  "platforms": {
+    "claude_desktop": {
+      "config_path": "~/Library/Application Support/Claude/claude_desktop_config.json",
+      "config_template": "mcp-servers/claude_desktop_config.json",
+      "supported": true
+    },
+    "vscode": {
+      "config_path": ".vscode/settings.json",
+      "config_template": ".vscode/settings.json",
+      "supported": true
+    },
+    "console": {
+      "method": "context_export",
+      "supported": true
+    },
+    "mobile": {
+      "method": "thread_export_import",
+      "supported": true
+    },
+    "docker": {
+      "compose_file": "docker/docker-compose.yml",
+      "supported": true
+    }
+  },
+
+  "storage": {
+    "conversation_threads": "~/.claude_threads/",
+    "meta_skill_config": "~/.claude_config/",
+    "api_usage_logs": "~/.claude_api_usage/",
+    "exported_threads": "~/.claude_threads/exports/"
+  },
+
+  "limits": {
+    "api": {
+      "max_requests_per_minute": 50,
+      "max_tokens_per_minute": 40000,
+      "max_requests_per_day": 1000,
+      "max_tokens_per_day": 1000000,
+      "daily_budget_usd": 10.0,
+      "monthly_budget_usd": 100.0,
+      "alert_threshold": 0.8
+    },
+    "storage": {
+      "max_threads": 10000,
+      "max_skills": 1000,
+      "max_conversation_history": 1000
+    }
+  },
+
+  "features": {
+    "auto_learning": true,
+    "cross_platform_threads": true,
+    "usage_enforcement": true,
+    "skill_recommendations": true,
+    "conversation_export": true,
+    "docker_deployment": true,
+    "ci_cd_testing": true
+  },
+
+  "metadata": {
+    "total_tools": 16,
+    "total_skills": 5,
+    "python_modules": 5,
+    "mcp_servers": 3,
+    "platforms_supported": 5,
+    "documentation_files": 6
+  },
+
+  "required_env_vars": {
+    "ANTHROPIC_API_KEY": {
+      "required": true,
+      "description": "Anthropic API key for file uploads and API calls",
+      "format": "sk-ant-..."
+    },
+    "GITHUB_TOKEN": {
+      "required": false,
+      "description": "GitHub personal access token for GitHub MCP server",
+      "format": "ghp_..."
+    },
+    "BRAVE_API_KEY": {
+      "required": false,
+      "description": "Brave API key for web search MCP server",
+      "format": "..."
+    }
+  },
+
+  "quick_start": {
+    "docker": "docker-compose -f docker/docker-compose.yml up -d",
+    "test": "cd meta-skill/tests && ./run_tests.sh",
+    "cli": {
+      "file_upload": "python3 python-client/claude_files_api.py upload --file FILE",
+      "create_thread": "python3 python-client/conversation_tracker.py create --title TITLE",
+      "usage_report": "python3 python-client/api_usage_tracker.py report"
+    }
+  },
+
+  "links": {
+    "documentation": "README.md",
+    "tools_registry": "TOOLS.md",
+    "python_client": "python-client/README.md",
+    "meta_skill": "meta-skill/README.md",
+    "mcp_servers": "mcp-servers/README.md",
+    "conversation_tracker": "python-client/CONVERSATION_TRACKER_README.md"
+  }
+}
