@@ -1,0 +1,34 @@
+FROM python:3.11-slim
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    nodejs \
+    npm \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set working directory
+WORKDIR /app
+
+# Copy requirements
+COPY python-client/requirements.txt /app/
+COPY meta-skill/requirements.txt /app/meta-skill-requirements.txt
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt \
+    && pip install --no-cache-dir -r meta-skill-requirements.txt \
+    && pip install --no-cache-dir mcp anthropic
+
+# Copy all integration code
+COPY . /app/
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONPATH=/app
+
+# Expose ports for MCP servers
+EXPOSE 8000 8001 8002
+
+# Default command
+CMD ["python3", "-m", "http.server", "8000"]

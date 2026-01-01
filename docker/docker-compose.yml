@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  # Main Claude integrations container
+  claude-integrations:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.claude-integrations
+    container_name: claude-integrations
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+    volumes:
+      - ../:/app
+      - claude-data:/root/.claude_threads
+      - meta-skill-data:/root/.claude_config
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  # File upload MCP server
+  mcp-file-upload:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.claude-integrations
+    container_name: mcp-file-upload
+    command: python3 /app/mcp-servers/file-upload-mcp/server.py
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    volumes:
+      - ../:/app
+    restart: unless-stopped
+
+  # Meta-skill MCP server
+  mcp-meta-skill:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.claude-integrations
+    container_name: mcp-meta-skill
+    command: python3 /app/mcp-servers/meta-skill-mcp/server.py
+    volumes:
+      - ../:/app
+      - meta-skill-data:/root/.claude_config
+    restart: unless-stopped
+
+  # Conversation tracker MCP server
+  mcp-conversation-tracker:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.claude-integrations
+    container_name: mcp-conversation-tracker
+    command: python3 /app/mcp-servers/conversation-tracker-mcp/server.py
+    volumes:
+      - ../:/app
+      - claude-data:/root/.claude_threads
+    restart: unless-stopped
+
+volumes:
+  claude-data:
+  meta-skill-data:

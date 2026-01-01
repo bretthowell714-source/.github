@@ -1,0 +1,60 @@
+name: Test Claude Integrations
+
+on:
+  push:
+    branches: [ main, claude/* ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-python-client:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r python-client/requirements.txt
+          pip install -r meta-skill/requirements.txt
+
+      - name: Run meta-skill tests
+        run: |
+          cd meta-skill/tests
+          python3 test_meta_skill_engine.py
+
+  test-mcp-servers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install MCP dependencies
+        run: |
+          pip install mcp anthropic requests pyyaml
+
+      - name: Test MCP server imports
+        run: |
+          python3 -c "import sys; sys.path.insert(0, 'mcp-servers/file-upload-mcp'); import server"
+          python3 -c "import sys; sys.path.insert(0, 'mcp-servers/meta-skill-mcp'); import server"
+
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: |
+          docker build -f docker/Dockerfile.claude-integrations -t claude-integrations .
+
+      - name: Test Docker image
+        run: |
+          docker run --rm claude-integrations python3 --version

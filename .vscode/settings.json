@@ -1,0 +1,27 @@
+{
+  "claude.mcpServers": {
+    "file-upload": {
+      "command": "python3",
+      "args": ["${workspaceFolder}/mcp-servers/file-upload-mcp/server.py"],
+      "env": {
+        "ANTHROPIC_API_KEY": "${env:ANTHROPIC_API_KEY}"
+      }
+    },
+    "meta-skill": {
+      "command": "python3",
+      "args": ["${workspaceFolder}/mcp-servers/meta-skill-mcp/server.py"]
+    },
+    "conversation-tracker": {
+      "command": "python3",
+      "args": ["${workspaceFolder}/mcp-servers/conversation-tracker-mcp/server.py"]
+    }
+  },
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.formatting.provider": "black",
+  "editor.formatOnSave": true,
+  "files.associations": {
+    "*.yaml": "yaml",
+    "*.json": "jsonc"
+  }
+}

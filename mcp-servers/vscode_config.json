@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "claude-files-api": {
+      "command": "python3",
+      "args": [
+        "/home/user/.github/mcp-servers/file-upload-mcp/server.py"
+      ],
+      "env": {
+        "ANTHROPIC_API_KEY": "${ANTHROPIC_API_KEY}"
+      }
+    },
+    "meta-skill-engine": {
+      "command": "python3",
+      "args": [
+        "/home/user/.github/mcp-servers/meta-skill-mcp/server.py"
+      ]
+    }
+  }
+}
