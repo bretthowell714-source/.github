@@ -1,0 +1,7 @@
+# Authorized targets only.
+# One per line. Supports IPs, hostnames, CIDRs, and nmap target expressions.
+#
+# Examples:
+# 192.0.2.10
+# 198.51.100.0/24
+# testlab.local
