@@ -1,0 +1,104 @@
+# Environment variables (never commit)
+.env
+.env.local
+.env.*.local
+
+# Node dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+ENV/
+.venv
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# OS specific
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+
+# IDE settings
+.editorconfig
+.prettierrc
+.eslintrc
+
+# Cache
+.cache/
+.eslintcache
+
+# Security
+credentials.json
+private-key.pem
+*.key
+*.pem
+secrets/
+
+# Local development
+.local/
+local/
+dev/
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Git hooks
+.git/hooks/pre-commit
+.git/hooks/post-commit
+
+# Archive
+*.zip
+*.tar.gz
+*.rar
+
+# Compiled
+*.o
+*.so
+*.a
+*.exe
+
+# State files
+.state/
+state.json
+
+# Customization
+local-customization/
+my-tools/
+my-plugins/

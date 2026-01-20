@@ -1,0 +1,91 @@
+{
+  "workspace": {
+    "name": "Claude Customization Workspace",
+    "version": "1.0.0",
+    "description": "Personal workspace for Claude customization and extensions"
+  },
+  "claude-code": {
+    "model": "claude-opus-4-5-20251101",
+    "cli-version": "latest",
+    "workspace-path": ".",
+    "custom-tools-path": "./tools/custom",
+    "auto-save": true,
+    "debug-mode": false
+  },
+  "models": {
+    "primary": "claude-opus-4-5-20251101",
+    "secondary": "claude-sonnet-4-20250514",
+    "fallback": "claude-haiku-4-5-20251001"
+  },
+  "agents": {
+    "default-model": "claude-opus-4-5-20251101",
+    "default-temperature": 0.7,
+    "default-max-tokens": 4096,
+    "timeout-ms": 300000,
+    "retry-policy": {
+      "max-retries": 3,
+      "backoff-multiplier": 2,
+      "initial-delay-ms": 1000
+    }
+  },
+  "tools": {
+    "enabled-by-default": [
+      "read",
+      "write",
+      "edit",
+      "glob",
+      "grep",
+      "bash",
+      "web-fetch",
+      "web-search"
+    ],
+    "custom-tools-path": "./tools/custom",
+    "auto-register": true,
+    "timeout-ms": 30000
+  },
+  "mcp-servers": {
+    "enabled": true,
+    "port": 8000,
+    "experimental-features": false,
+    "servers": []
+  },
+  "caching": {
+    "web-cache-ttl-ms": 900000,
+    "response-cache-enabled": true,
+    "response-cache-ttl-ms": 300000
+  },
+  "performance": {
+    "parallel-operations": true,
+    "max-concurrent-tasks": 5,
+    "enable-streaming": true,
+    "token-budget": 4096
+  },
+  "security": {
+    "verify-git-operations": true,
+    "require-confirmation-for-write": false,
+    "require-confirmation-for-bash": false,
+    "sandbox-mode": true
+  },
+  "logging": {
+    "level": "info",
+    "log-file": "./logs/claude.log",
+    "max-log-size": 10485760,
+    "retain-logs": 5
+  },
+  "extensions": {
+    "enabled": true,
+    "path": "./extensions",
+    "auto-load": true
+  },
+  "plugins": {
+    "enabled": true,
+    "path": "./plugins",
+    "auto-load": true
+  },
+  "hooks": {
+    "session-start": "./scripts/hooks/session-start.sh",
+    "session-end": "./scripts/hooks/session-end.sh",
+    "pre-commit": "./scripts/hooks/pre-commit.sh",
+    "post-commit": "./scripts/hooks/post-commit.sh"
+  }
+}
