@@ -24,6 +24,19 @@
         "tags": ["data", "json", "processing"],
         "author": "bretthowell714",
         "dependencies": []
+      },
+      {
+        "name": "security-testing",
+        "path": "./examples/security-testing-skill.js",
+        "enabled": true,
+        "description": "Coordinate security testing and penetration testing workflows",
+        "version": "1.0.0",
+        "category": "Security Testing",
+        "tags": ["security", "testing", "penetration", "kali", "metasploit"],
+        "author": "bretthowell714",
+        "dependencies": ["nmap", "nikto", "metasploit"],
+        "requiresAuthorization": true,
+        "authorizationIdRequired": "AUTHORIZATION_ID"
       }
     ],
     "templates": [

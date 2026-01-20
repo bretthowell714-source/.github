@@ -8,6 +8,7 @@ This repository provides a complete framework for:
 - **Custom Skills**: Create specialized skills and capabilities
 - **Custom Tools**: Create and manage custom tools for Claude
 - **Capabilities**: Extend Claude's native capabilities
+- **Security Testing**: Authorized penetration testing with Metasploit & Kali Linux
 - **Plugins**: Develop plugins to enhance functionality
 - **Extensions**: Build extensions for various Claude interfaces
 - **MCP Servers**: Create Model Context Protocol servers
@@ -24,6 +25,9 @@ This repository provides a complete framework for:
 │   ├── TOOLS.md                 # Available tools documentation
 │   ├── CUSTOM_SKILLS.md         # Guide for creating custom skills
 │   ├── CUSTOM_TOOLS.md          # Guide for creating custom tools
+│   ├── METASPLOIT_TOOLS.md      # Metasploit modules & payloads
+│   ├── KALI_LINUX_TOOLS.md      # Kali Linux tools reference
+│   ├── SECURITY_TESTING_GUIDE.md # Authorized penetration testing guide
 │   ├── PLUGINS.md               # Plugin development guide
 │   ├── EXTENSIONS.md            # Extension development guide
 │   ├── OPTIMIZATION.md          # Performance optimization guide
