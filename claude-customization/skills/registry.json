@@ -1,0 +1,51 @@
+{
+  "registry": {
+    "version": "1.0.0",
+    "description": "Claude Custom Skills Registry",
+    "skills": [
+      {
+        "name": "text-formatter",
+        "path": "./examples/text-formatter-skill.js",
+        "enabled": true,
+        "description": "Format and manipulate text",
+        "version": "1.0.0",
+        "category": "Utility",
+        "tags": ["text", "format", "utility"],
+        "author": "bretthowell714",
+        "dependencies": []
+      },
+      {
+        "name": "data-processor",
+        "path": "./examples/data-processor-skill.js",
+        "enabled": true,
+        "description": "Process and transform data",
+        "version": "1.0.0",
+        "category": "Data",
+        "tags": ["data", "json", "processing"],
+        "author": "bretthowell714",
+        "dependencies": []
+      }
+    ],
+    "templates": [
+      {
+        "name": "simple-skill",
+        "path": "./templates/simple-skill.template.js",
+        "description": "Template for creating simple skills",
+        "complexity": "beginner"
+      },
+      {
+        "name": "integration-skill",
+        "path": "./templates/integration-skill.template.js",
+        "description": "Template for external service integration",
+        "complexity": "intermediate"
+      }
+    ],
+    "configuration": {
+      "auto-load": true,
+      "auto-register": true,
+      "default-timeout": 30000,
+      "cache-enabled": true,
+      "cache-ttl": 3600000
+    }
+  }
+}

@@ -292,6 +292,48 @@ Usage: Monitor and retrieve background task results
 - Context preservation
 - Long conversation support
 
+## Custom Skills
+
+### 12. Skill Development & Registration
+
+**What are Skills?**
+- Specialized capabilities for domain-specific tasks
+- Easier to create than full tools
+- Support async/await and state management
+- Auto-discoverable and registerable
+
+**Skill Types**
+- Simple skills: Single-purpose utilities
+- Complex skills: Multi-step workflows
+- Integration skills: External service connectors
+- Domain skills: Specialized knowledge areas
+- Composite skills: Combine multiple tools
+
+**Skill Features**
+- Input/output validation
+- Error handling and logging
+- Performance optimization (caching)
+- Dependency management
+- Version control
+
+```
+Tool: Custom Skills
+Usage: Create domain-specific capabilities
+```
+
+**Example**:
+```javascript
+module.exports = {
+  name: "my-skill",
+  description: "What it does",
+  execute: async (input) => {
+    return { success: true, result: processedData };
+  }
+};
+```
+
+See [CUSTOM_SKILLS.md](./CUSTOM_SKILLS.md) for complete guide.
+
 ## Customization Capabilities
 
 ### 13. System Prompts
@@ -440,8 +482,11 @@ Usage: Monitor and retrieve background task results
 ## See Also
 
 - [TOOLS.md](./TOOLS.md) - Detailed tool documentation
+- [CUSTOM_SKILLS.md](./CUSTOM_SKILLS.md) - Creating custom skills
 - [CUSTOM_TOOLS.md](./CUSTOM_TOOLS.md) - Creating custom tools
 - [PLUGINS.md](./PLUGINS.md) - Plugin development
+- [OPTIMIZATION.md](./OPTIMIZATION.md) - Performance optimization
+- [CONNECTORS.md](./CONNECTORS.md) - Service integrations
 - [API Documentation](https://docs.anthropic.com)
 
 Last updated: January 2026

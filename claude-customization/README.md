@@ -5,6 +5,7 @@ A comprehensive repository for customizing and extending Claude's capabilities w
 ## Overview
 
 This repository provides a complete framework for:
+- **Custom Skills**: Create specialized skills and capabilities
 - **Custom Tools**: Create and manage custom tools for Claude
 - **Capabilities**: Extend Claude's native capabilities
 - **Plugins**: Develop plugins to enhance functionality
@@ -21,9 +22,12 @@ This repository provides a complete framework for:
 ├── docs/                        # Documentation
 │   ├── CAPABILITIES.md          # Built-in Claude capabilities
 │   ├── TOOLS.md                 # Available tools documentation
+│   ├── CUSTOM_SKILLS.md         # Guide for creating custom skills
 │   ├── CUSTOM_TOOLS.md          # Guide for creating custom tools
 │   ├── PLUGINS.md               # Plugin development guide
 │   ├── EXTENSIONS.md            # Extension development guide
+│   ├── OPTIMIZATION.md          # Performance optimization guide
+│   ├── CONNECTORS.md            # Service integration guide
 │   └── MCP_SERVERS.md           # MCP server setup guide
 ├── tools/                       # Custom tool definitions
 │   ├── examples/                # Example custom tools
@@ -110,6 +114,39 @@ Claude has access to a comprehensive set of tools and capabilities:
 - **Agent SDK** - Build custom agents
 
 See [CAPABILITIES.md](./docs/CAPABILITIES.md) for full details.
+
+## Creating Custom Skills
+
+Custom skills are specialized capabilities you add to Claude for domain-specific tasks. They're easier to create than tools and perfect for domain expertise.
+
+### Quick Example
+
+Create a simple skill:
+
+```javascript
+// skills/my-skill.js
+module.exports = {
+  name: "my-skill",
+  description: "Do something specific",
+  execute: async (input) => {
+    // Your implementation
+    return { success: true, result: processedData };
+  }
+};
+```
+
+Then tell Claude:
+```
+I have a skill called "my-skill". Use it to process "something".
+```
+
+See [CUSTOM_SKILLS.md](./docs/CUSTOM_SKILLS.md) for complete guide with:
+- Types of skills (simple, complex, integration, domain, composite)
+- Full skill structure and options
+- Registration and discovery
+- Examples (text formatter, GitHub helper, code reviewer)
+- Best practices and patterns
+- Troubleshooting
 
 ## Creating Custom Tools
 
