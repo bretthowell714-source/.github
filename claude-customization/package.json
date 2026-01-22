@@ -28,7 +28,7 @@
     "extensions",
     "mcp"
   ],
-  "author": "bretthowell714-source",
+  "author": "bretthowell350-creator",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^16.3.1",
@@ -52,10 +52,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bretthowell714-source/claude-customization.git"
+    "url": "https://github.com/bretthowell350-creator/claude-customization.git"
   },
   "bugs": {
-    "url": "https://github.com/bretthowell714-source/claude-customization/issues"
+    "url": "https://github.com/bretthowell350-creator/claude-customization/issues"
   },
-  "homepage": "https://github.com/bretthowell714-source/claude-customization#readme"
+  "homepage": "https://github.com/bretthowell350-creator/claude-customization#readme"
 }

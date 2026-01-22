@@ -3,9 +3,9 @@
     "name": "Claude Customization Workspace",
     "version": "1.0.0",
     "description": "Personal workspace for Claude customization and extensions",
-    "owner": "bretthowell714-source",
-    "email": "bretthowell714@gmail.com",
-    "repository": "https://github.com/bretthowell714-source/claude-customization"
+    "owner": "bretthowell350-creator",
+    "email": "bretthowell350@gmail.com",
+    "repository": "https://github.com/bretthowell350-creator/claude-customization"
   },
   "claude-code": {
     "model": "claude-opus-4-5-20251101",
